@@ -27,6 +27,16 @@ button {
 #header button {
   background-color: #92a1d1;
 }
+/* Landing page Styles */
+section.container {
+  display: flex;
+}
+#loginSignup {
+  display: flex;
+}
+a {
+}
+/* **** */
 #container {
   width: 770px;
 }
