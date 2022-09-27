@@ -56,6 +56,13 @@ a:visited {
   background-color: #d0c6d2;
 }
 /* **** */
+/* Sign Up page Styles */
+
+form.signupForm {
+  display: flex;
+}
+
+/* **** */
 #container {
   width: 770px;
 }
