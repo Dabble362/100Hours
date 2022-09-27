@@ -28,13 +28,32 @@ button {
   background-color: #92a1d1;
 }
 /* Landing page Styles */
-section.container {
+main.container {
   display: flex;
+  flex-direction: column;
 }
 #loginSignup {
   display: flex;
+  justify-content: space-around;
 }
-a {
+#loginSignup a {
+  background-color: #b48eae;
+  color: #d7d9d7;
+  padding: 1em 3em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#loginSignup a:hover {
+  background-color: #baacbd;
+}
+
+a:active {
+  background-color: #c9c5cb;
+}
+
+a:visited {
+  background-color: #d0c6d2;
 }
 /* **** */
 #container {
