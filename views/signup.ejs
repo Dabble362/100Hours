@@ -5,12 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap"
+      rel="stylesheet"
+    />
     <title>Punctual - Sign</title>
   </head>
   <body>
-    <main class="container">
+    <main class="container" id="outsideContainer">
       <div class="row justify-content-center">
-        <section class="col-6 mt-5">
+        <section class="formContainer">
           <% if (locals.messages.errors) { %> <% messages.errors.forEach( el =>
           { %>
           <div class="alert alert-danger"><%= el.msg %></div>
@@ -18,8 +24,8 @@
           messages.info.forEach( el => { %>
           <div class="alert alert-info"><%= el.msg %></div>
           <% }) %> <% } %>
-          <form action="/signup" method="POST">
-            <div class="mb-3">
+          <form class="signupForm" action="/signup" method="POST">
+            <div class="labelContainer">
               <label for="userName" class="form-label">User Name</label>
               <input
                 type="text"
@@ -28,10 +34,8 @@
                 name="userName"
               />
             </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">
-                Email address
-              </label>
+            <div class="labelContainer">
+              <label for="InputEmail" class="form-label"> Email address </label>
               <input
                 type="email"
                 class="form-control"
@@ -43,7 +47,7 @@
                 We'll never share your email with anyone else.
               </div>
             </div>
-            <div class="mb-3">
+            <div class="labelContainer">
               <label for="password" class="form-label">Password</label>
               <input
                 type="password"
@@ -52,7 +56,7 @@
                 name="password"
               />
             </div>
-            <div class="mb-3">
+            <div class="labelContainer">
               <label for="confirmPassword" class="form-label">
                 Confirm Password
               </label>
