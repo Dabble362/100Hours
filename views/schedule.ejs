@@ -31,12 +31,44 @@
     </div>
 
     <div id="newEventModal">
-      <h2>New Event</h2>
+      <form>
+        <h2>New Shift</h2>
+        <label for="departmentDropDown">Department</label>
 
-      <input id="eventTitleInput" placeholder="Event Title" />
+        <select name="departments" id="departmentDropDown">
+          <option>Kitchen</option>
+          <option>Sandwich Line</option>
+          <option>Dishwasher</option>
+          <option>Register</option>
+          <option>Deli counter</option>
+          <option>Office</option>
+        </select>
 
-      <button id="saveButton">Save</button>
-      <button id="cancelButton">Cancel</button>
+        <label for="employeeDropDown">Employee</label>
+
+        <select name="employees" id="employeeDropDown">
+          <option>Alice</option>
+          <option>Bob</option>
+          <option>Charlie</option>
+          <option>David</option>
+          <option>Frank</option>
+          <option>Greg</option>
+        </select>
+
+        <label for="dateSelect"></label>
+        <input type="date" id="dateSelect" value="" />
+
+        <label for="startTime"></label>
+        <input type="time" id="startTime" />
+
+        <label for="endTime"></label>
+        <input type="time" id="endTime" />
+
+        <input id="createNewShift" placeholder="Event Title" />
+
+        <button id="saveButton">Save</button>
+        <button id="cancelButton">Cancel</button>
+      </form>
     </div>
 
     <div id="deleteEventModal">

@@ -13,11 +13,15 @@ module.exports = {
   },
   createShift: async (req, res) => {
     try {
-      await Entries.create({
-        entry: req.body.entry,
+      await Shift.create({
+        department: req.body.department,
+        employee: req.body.employee,
         date: req.body.date,
-        title: req.body.title,
-        mood: req.body.mood,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
+        madeBy: req.body.madeBy,
+        createdAt: req.body.createdAt,
+        tradeable: req.body.tradeable,
         userId: req.user.id,
       });
       console.log("A shift has been added!");
