@@ -35,7 +35,7 @@
         <h2>New Shift</h2>
         <label for="departmentDropDown">Department</label>
 
-        <select name="departments" id="departmentDropDown">
+        <select name="department" id="departmentDropDown">
           <option>Kitchen</option>
           <option>Sandwich Line</option>
           <option>Dishwasher</option>
@@ -46,7 +46,7 @@
 
         <label for="employeeDropDown">Employee</label>
 
-        <select name="employees" id="employeeDropDown">
+        <select name="employee" id="employeeDropDown">
           <option>Alice</option>
           <option>Bob</option>
           <option>Charlie</option>
@@ -56,15 +56,13 @@
         </select>
 
         <label for="dateSelect"></label>
-        <input type="date" id="dateSelect" value="" />
+        <input type="date" id="dateSelect" value="" name="date" />
 
         <label for="startTime"></label>
-        <input type="time" id="startTime" />
+        <input type="time" id="startTime" name="startTime" />
 
         <label for="endTime"></label>
-        <input type="time" id="endTime" />
-
-        <input id="createNewShift" placeholder="Event Title" />
+        <input type="time" id="endTime" name="endTime" />
 
         <button id="saveButton">Save</button>
         <button id="cancelButton">Cancel</button>
