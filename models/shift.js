@@ -34,4 +34,4 @@ const ShiftSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Shift", ShiftSchema);
+module.exports = mongoose.model("Shifts", ShiftSchema);

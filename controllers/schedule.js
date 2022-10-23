@@ -3,7 +3,9 @@ const Shift = require("../models/shift");
 module.exports = {
   getSchedule: async (req, res) => {
     try {
+      //grab shifts by the logged-in user's id
       const shifts = await Shift.find({ user: req.user.id });
+      //render the page with logged-in user's shifts
       res.render("schedule.ejs", { shifts: shifts, user: req.user });
     } catch (err) {
       console.log(err);
@@ -18,7 +20,7 @@ module.exports = {
         mood: req.body.mood,
         userId: req.user.id,
       });
-      console.log("Entry has been added!");
+      console.log("A shift has been added!");
       res.redirect("/dashboard");
     } catch (err) {
       console.log(err);
