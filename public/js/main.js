@@ -1,9 +1,9 @@
 let nav = 0;
 let clicked = null;
 
-//convert events to shifts
-let events = localStorage.getItem("events")
-  ? JSON.parse(localStorage.getItem("events"))
+//convert shifts to shifts
+let shifts = localStorage.getItem("shifts")
+  ? JSON.parse(localStorage.getItem("shifts"))
   : [];
 ////////////////////////////
 const calendar = document.getElementById("calendar");
@@ -23,8 +23,8 @@ const weekdays = [
 
 function openModal(date) {
   clicked = date;
-
-  const eventForDay = events.find((e) => e.date === clicked);
+  // store boolean result of checking if day clicked has an event
+  const eventForDay = shifts.find((e) => e.date === clicked);
 
   if (eventForDay) {
     document.getElementById("eventText").innerText = eventForDay.title;
@@ -74,17 +74,19 @@ function load() {
 
     if (i > paddingDays) {
       daySquare.innerText = i - paddingDays;
-      const eventForDay = events.find((e) => e.date === dayString);
+      //Find shifts(shifts) for each day
+      const eventForDay = shifts.find((e) => e.date === dayString);
 
       if (i - paddingDays === day && nav === 0) {
         daySquare.id = "currentDay";
       }
-
+      // WHAT TO DO:  Add shifts when schedule.ejs is rendered through the use of EJS || input the functionality below?
       if (eventForDay) {
-        const eventDiv = document.createElement("div");
-        eventDiv.classList.add("event");
-        eventDiv.innerText = eventForDay.title;
-        daySquare.appendChild(eventDiv);
+        // create divs inside of each day that has a shift
+        const eventDiv = document.createElement("div"); // store div object
+        eventDiv.classList.add("event"); //give div object a class of: event
+        eventDiv.innerText = eventForDay.title; //set the content of the div equal to the day's event(shift) title
+        daySquare.appendChild(eventDiv); // add the event(shift)div as a child to the corresponding day square
       }
 
       daySquare.addEventListener("click", () => openModal(dayString));
@@ -107,16 +109,16 @@ function closeModal() {
   load();
 }
 
-function saveEvent() {
+function saveShift() {
   if (createNewShift.value) {
     createNewShift.classList.remove("error");
 
-    events.push({
+    shifts.push({
       date: clicked,
       title: createNewShift.value,
     });
 
-    localStorage.setItem("events", JSON.stringify(events));
+    localStorage.setItem("shifts", JSON.stringify(shifts));
     closeModal();
   } else {
     createNewShift.classList.add("error");
@@ -124,8 +126,8 @@ function saveEvent() {
 }
 
 function deleteEvent() {
-  events = events.filter((e) => e.date !== clicked);
-  localStorage.setItem("events", JSON.stringify(events));
+  shifts = shifts.filter((e) => e.date !== clicked);
+  localStorage.setItem("shifts", JSON.stringify(shifts));
   closeModal();
 }
 
@@ -140,7 +142,7 @@ function initButtons() {
     load();
   });
 
-  document.getElementById("saveButton").addEventListener("click", saveEvent);
+  document.getElementById("saveButton").addEventListener("click", saveShift);
   document.getElementById("cancelButton").addEventListener("click", closeModal);
   document
     .getElementById("deleteButton")

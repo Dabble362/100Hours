@@ -5,6 +5,7 @@ module.exports = {
     try {
       //grab shifts by the logged-in user's id
       const shifts = await Shift.find({ user: req.user.id });
+      await shifts.forEach((doc) => console.log(doc));
       //render the page with logged-in user's shifts
       res.render("schedule.ejs", { shifts: shifts, user: req.user });
     } catch (err) {
