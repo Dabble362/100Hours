@@ -31,7 +31,7 @@
     </div>
 
     <div id="newEventModal">
-      <form>
+      <form action="/schedule" autocomplete="off" method="post">
         <h2>New Shift</h2>
         <label for="departmentDropDown">Department</label>
 
@@ -63,6 +63,8 @@
 
         <label for="endTime"></label>
         <input type="time" id="endTime" name="endTime" />
+
+        <input id="createNewShift" placeholder="Event Title" />
 
         <button id="saveButton">Save</button>
         <button id="cancelButton">Cancel</button>

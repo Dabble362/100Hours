@@ -25,7 +25,7 @@ module.exports = {
         userId: req.user.id,
       });
       console.log("A shift has been added!");
-      res.redirect("/dashboard");
+      res.redirect("/schedule");
     } catch (err) {
       console.log(err);
     }
